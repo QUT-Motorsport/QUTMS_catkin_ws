@@ -1,12 +1,14 @@
 # This is a README / notes documenting the development process
 
 ## Catkin workspace
-### WARNING
-The reason why the catkin_ws is appended with DO_NOT_USE, is because this is not an appropriate setup. 
-The setup of a catkin_ws should follow ROSwiki's explicit instructions. 
+This is a catkin workspace repository, e.g. `~/catkin_ws`.    
 
-This workspace however, is an example to how your catkin workspace should look like.
-_Notes: it's almost guaranteed to have pathing errors this way. Fix them accordingly in CMakeCache.txt and Makefile by replacing the correct absolute path._ 
+### WARNING
+This catkin_ws repository is __NOT__ an appropriate setup.    
+The setup of a catkin_ws should follow ROSwiki's explicit instructions.    
+
+This workspace however, is an example to how your catkin workspace should look like.    
+_Notes: It is almost guaranteed to have pathing errors this way. If using anyway, fix them accordingly in CMakeLists.txt, CMakeCache.txt and Makefile by replacing the correct absolute path when necessary._ 
 
 ### Setting up catkin workspace
 Start by creating a catkin workspace: ```mkdir -p ~/catkin_ws/src```    
@@ -15,7 +17,7 @@ then, ```cd ~/catkin_ws/```
 Here, to initialise from scratch do as official ROSwiki suggests:    
 ```catkin_make```    
 
-Or just copy and replace with this repo's subdirectory `catkin_ws-DO_NOT_USE/`.    
+Or just clone and copy the __content__ of this repo into your `~/catkin_ws/`.    
 One may require to do `catkin_make` at `catkin_ws` directory anyway (after fixing all the pathing errors).
 
 ### Plugins
@@ -80,6 +82,9 @@ Steering command (/QEV2/turn_cmd) is similar.
 As there will be more and more nodes coming into play, another README is placed in the src/nodes folder. 
 
 For details of how the nodes are used, check there. 
+
+In short, roslaunch as mentioned above.
+This should fire up a roscore, then you can manually start your generated executable nodes.  
 
 
 
