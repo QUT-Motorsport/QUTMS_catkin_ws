@@ -68,9 +68,9 @@ int main(int argc, char **argv) {
         if(c=='q') // Reset  front wheels
           set_turn(0.0, turn_msg);
         if(c=='a')
-          set_turn(2.0, turn_msg);
+          set_turn(3.0, turn_msg);
         if(c=='d')
-          set_turn(-2.0, turn_msg);
+          set_turn(-3.0, turn_msg);
  
         /*
         // Set the initial speed and turn to target
