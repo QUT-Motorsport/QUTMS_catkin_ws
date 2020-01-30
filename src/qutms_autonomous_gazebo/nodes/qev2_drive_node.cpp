@@ -2,6 +2,7 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/Float64.h>
 #include <time.h>
+#include <termios.h>
 
 // Node to send specific messages to the Gazebo node on the QEV2/cmd_vel topic
 
@@ -13,6 +14,19 @@ void set_speed(double vel, std_msgs::Float32& msg) {
 void set_turn(double turn, std_msgs::Float64& msg) {
     // Takes a double and puts into a message for publishing
     msg.data = turn;
+}
+
+int getch() {
+  static struct termios oldt, newt;
+  tcgetattr( STDIN_FILENO, &oldt); // Save old settings
+  newt = oldt;
+  newt.c_lflag &= ~(ICANON); // Disable buffering
+  tcsetattr( STDIN_FILENO, TCSANOW, &newt); // Apply new settings
+
+  int c = getchar(); // Read character (non-blocking)
+
+  tcsetattr( STDIN_FILENO, TCSANOW, &oldt); // Restore old settings
+  return c;
 }
 
 int main(int argc, char **argv) {
@@ -41,7 +55,24 @@ int main(int argc, char **argv) {
         // Set a duration for timing
         ros::Duration d(10.0);
         double dur = d.toSec();
+        
+        int c = getch(); // Call non-blocking input function
+        
+        if(c=='e') // Stop (or E-stop)
+          set_speed(0.0, velr_msg);
+        if(c=='w')
+          set_speed(10.0, velr_msg);
+        if(c=='s')
+          set_speed(-10.0, velr_msg);
 
+        if(c=='q') // Reset  front wheels
+          set_turn(0.0, turn_msg);
+        if(c=='a')
+          set_turn(2.0, turn_msg);
+        if(c=='d')
+          set_turn(-2.0, turn_msg);
+ 
+        /*
         // Set the initial speed and turn to target
         set_speed(10.0, velr_msg);
         set_turn(2.0, turn_msg);
@@ -53,6 +84,7 @@ int main(int argc, char **argv) {
             set_speed(5.0, velr_msg);
             set_turn(-2.0, turn_msg);
         }
+        */
         
         // Publish, and sleep
         gzv_pub.publish(velr_msg);
