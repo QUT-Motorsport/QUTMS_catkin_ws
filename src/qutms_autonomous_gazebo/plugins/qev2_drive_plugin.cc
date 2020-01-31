@@ -37,8 +37,8 @@ namespace gazebo
 
             // RIGHT WHEEL STEERING ROTATION
 
-            // Get the front right wheel joint
-            this->joint = _model->GetJoints()[0];
+            // Get the front LEFT wheel joint
+            this->joint = _model->GetJoints()[5];
 
             // Setup a PID controller with a 0.1 gain
             this->pid = common::PID(0.5, 0.1, 0);
@@ -46,10 +46,10 @@ namespace gazebo
             // Apply the gain specified
             this->model->GetJointController()->SetVelocityPID(this->joint->GetScopedName(), this->pid);
 
-            // LEFT WHEEL STEERING 
+            // RIGHT WHEEL STEERING 
 
-            // Get the front left wheel
-            this->joint2 = _model->GetJoints()[1];
+            // Get the front right wheel
+            this->joint2 = _model->GetJoints()[4];
 
             // Apply the gain
             this->model->GetJointController()->SetVelocityPID(this->joint2->GetScopedName(), this->pid);
@@ -57,8 +57,8 @@ namespace gazebo
             // REAR WHEELS
 
             // Get the rear wheel joints
-            this->joint3 = _model->GetJoints()[2];
-            this->joint4 = _model->GetJoints()[3];
+            this->joint3 = _model->GetJoints()[6];
+            this->joint4 = _model->GetJoints()[7];
 
             /////double rear_vel = this->joint3->GetVelocity(0);
 
