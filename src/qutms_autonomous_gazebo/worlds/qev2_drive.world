@@ -21,7 +21,7 @@
       </include>
 
       <!-- Attach the plugin to this model -->
-      <plugin name="qev2_drive_control" filename="build/libqev2_drive_plugin.so"/>
+      <plugin name="qev2_drive_control" filename="drive_plugin/build/libqev2_drive_plugin.so"/>
         <!--velocity>15</velocity-->
     </model>
 
