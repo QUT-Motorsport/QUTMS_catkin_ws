@@ -9,6 +9,10 @@
     <include>
       <uri>model://ground_plane</uri>
     </include>
+    <!-- A cylinder -->
+    <include>
+      <uri>model://cylinder</uri>
+    </include>
 
     <!-- Specify the QEV2 model -->
     <model name="QEV2">
