@@ -58,12 +58,15 @@ int main(int argc, char **argv) {
         
         int c = getch(); // Call non-blocking input function
         
-        if(c=='e') // Stop (or E-stop)
-          set_speed(0.0, velr_msg);
-        if(c=='w')
-          set_speed(10.0, velr_msg);
-        if(c=='s')
+        if(c=='r') // Reverse
           set_speed(-10.0, velr_msg);
+        if(c=='w') // Forward
+          set_speed(10.0, velr_msg);
+        if(c=='s') // Stop
+          set_speed(0.0, velr_msg);
+
+        if(c=='p') // Vroooom
+          set_speed(1000, velr_msg);
 
         if(c=='q') // Reset  front wheels
           set_turn(0.0, turn_msg);

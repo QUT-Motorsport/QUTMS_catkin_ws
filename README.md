@@ -38,6 +38,15 @@ In which contains plugin source file as well as its cmake build folder.
 The generated .so file will appear in this build folder. 
 Hence our world file, when specifying the .so file, must at least have `build/xxx.so` in front to complete a relative pathing. 
 
+### Nodes
+All the nodes used in this simulation are placed under the `nodes/` folder.   
+
+Edit the file.cc and CMakeLists accordingly.   
+To compile, go to `~/catkin_ws/` and run `catkin_make`. 
+This should generate a file.so in `~/catkin_ws/devel/lib/{package name}/file.so`
+
+Run this file.so in another terminal once the simulation is fired and running, and you should be able to control the robot.
+
 ### Using Gazebo
 Given a correct ROS installation, there should be a `.gazebo/` folder under root, i.e.:   
 ```~/.gazebo/```
