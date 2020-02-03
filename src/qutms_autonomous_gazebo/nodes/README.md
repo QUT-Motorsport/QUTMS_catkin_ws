@@ -14,9 +14,11 @@ Now you should be able to control QEV2 using WASD keys.
 All control have latching effects - that is, they behave more like a toggle then a gradual acc/decceleration.
 
 * W -> Forward at 10.0 speed
-* S -> Backward at 10.0 speed
-* E -> Reset to 0.0 speed (STOP)
-
+* S -> Reset to 0.0 speed (STOP)
 * A -> Steer left at 3.0 angle
 * D -> Steer right at 3.0 angle
 * Q -> Reset steering angle to 0
+
+* R -> Backward at 10.0 speed
+* P -> Forward at 1000.0 speed
+
