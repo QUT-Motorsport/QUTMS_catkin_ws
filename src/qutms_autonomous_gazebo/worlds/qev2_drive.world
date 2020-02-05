@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <sdf version="1.5">
   <world name="default">
     <!-- A global light source -->
@@ -13,17 +13,14 @@
     <include>
       <uri>model://cylinder</uri>
     </include>
-
     <!-- Specify the QEV2 model -->
     <model name="QEV2">
       <include>
         <uri>model://QEV2</uri>
       </include>
-
       <!-- Attach the plugin to this model -->
       <plugin name="qev2_drive_control" filename="drive_plugin/build/libqev2_drive_plugin.so"/>
-      <plugin name="qev2_camera_view" filename="camera_plugin/build/libCameraPublisher.so"/>
     </model>
-
+    <plugin name="qev2_camera_view" filename="camera_plugin/build/libCameraPublisher.so"/>
   </world>
 </sdf>

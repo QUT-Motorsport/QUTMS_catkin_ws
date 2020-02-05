@@ -1,9 +1,19 @@
-#include "gazebo/gazebo.hh"
+#ifndef _QEV2_CAMERA_PLUGIN_HH_
+#define _QEV2_CAMERA_PLUGIN_HH_
+
+#include <ros/ros.h>
+#include <ros/callback_queue.h>
+#include <ros/subscribe_options.h>
+#include <std_msgs/Float32.h>
+#include <std_msgs/Float64.h>
+#include <gazebo/gazebo.hh>
+#include <gazebo/physics/physics.hh>
+#include <gazebo/msgs/msgs.hh>
+///
 #include "gazebo/plugins/CameraPlugin.hh"
 #include "gazebo/common/common.hh"
 #include "gazebo/transport/transport.hh"
 #include <stdio.h>
-#include "ros/ros.h"
 #include "sensor_msgs/Image.h"
 #include "image_transport/image_transport.h"
 
@@ -30,7 +40,7 @@ public:
     }
 
 public:
-    void Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
+    virtual void Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
     {
 
         // Don't forget to load the camera plugin
@@ -131,3 +141,5 @@ private:
 // Register this plugin with the simulator
 GZ_REGISTER_SENSOR_PLUGIN(CameraPublisher)
 }
+
+#endif 
